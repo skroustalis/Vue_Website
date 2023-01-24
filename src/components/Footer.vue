@@ -1,5 +1,5 @@
 <template>
-  <hr />
+  <hr class="footer-hr"/>
     <footer class="footer">
       <div class="container">
         <div class="footer-content">
@@ -150,5 +150,9 @@
       }
     }
   }
+}
+
+.footer-hr{
+  margin: 0;
 }
 </style>

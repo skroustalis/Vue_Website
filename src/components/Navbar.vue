@@ -59,7 +59,7 @@ export default{
         },
         checkScreen(){
             this.windowWidth = window.innerWidth;
-            if (this.windowWidth <= 750){
+            if (this.windowWidth <= 768){
                 this.mobile = true;
                 return;
             }
@@ -98,7 +98,6 @@ header {
             color:#fff;
             list-style: none;
             text-decoration: none;
-            text-shadow: 1px 1px #000;
         }
 
         li{
@@ -127,7 +126,7 @@ header {
                 text-transform: uppercase;
                 font-size: 1.5rem;
                 font-weight: bold;
-                text-shadow: 3px 3px #000;
+                text-shadow: 2px 2px #000;
 
             }
 
@@ -170,10 +169,10 @@ header {
             width: 100%;
             max-width: 250px;
             height: 100%;
-            background-color: #fff;
-            padding-top: 20px;
+            background-color: #f1f1f1;
             top: 0;
             left: 0;
+            padding: 10%;
             
 
             li{
@@ -196,10 +195,8 @@ header {
 
         .mobile-nav-enter-to {
             transform: translateX(0);
-        }
-        
+        }   
     }
-
 }
 
 .scrolled-nav { 

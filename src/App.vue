@@ -2,22 +2,19 @@
   <div class="app">
     <Navbar />
       <router-view /> 
-    <Map />
     <Footer />
   </div>
 </template>
 <script>
 import Navbar from "./components/Navbar.vue"
 import Footer from "./components/Footer.vue"
-import Map from "./components/Map.vue"
 
 export default {
   name: 'App',
   components:{
     Navbar,
     Footer,
-    Map
-  }
+ }
 };
 </script>
 
@@ -40,4 +37,5 @@ export default {
   max-width: 1140px;
   margin: 0 auto;
 }
+
 </style>
