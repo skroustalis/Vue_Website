@@ -4,6 +4,7 @@
             <h2>Vue Project</h2>
         </div>
     </div>
+    <hr />
 </template>
 
 <script>
@@ -25,13 +26,12 @@ export default{
     justify-content: center;
 
     .banner-text{
-        position:relative;
         color: #3a393a;
         
         h2{
             text-transform: uppercase;
-            font-size: 30px;
-            
+            font-size: 50px;
+            font-weight: 900;
         }
     }
 
@@ -42,7 +42,7 @@ export default{
 
         .banner-text{
             h2{
-                font-size: 30px;
+                font-size: 40px;
             }
         }
     }

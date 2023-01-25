@@ -2,14 +2,15 @@
     <header :class="{'scrolled-nav': scrolledNav}">
         <nav>
             <div class="branding">
-                <div class="logo">Vue App</div>
+                <div class="logo">
+                    <h2>Vue App</h2>
+                </div>
                 <!-- <img src="@/assets/logo.png" alt="" /> -->
             </div>
             <ul v-show="!mobile" class="navigation">
                 <li><router-link class="link" :to="{name: 'Home'}">Home</router-link></li>
                 <li><router-link class="link" :to="{name: 'About'}">About</router-link></li>
-                <li><router-link class="link" :to="{name: ''}">Portofolio</router-link></li>
-                <li><router-link class="link" :to="{name: ''}">Contact</router-link></li>
+                <li><router-link class="link" :to="{name: 'Contact'}">Contact</router-link></li>
             </ul>
         <div class="icon">
             <i @click="toggleMobileNav" v-show="mobile" class="fa-sharp fa-solid fa-bars" :class="{'icon-active': mobileNav}"></i>
@@ -18,8 +19,7 @@
             <ul v-show="mobileNav" class="dropdown-nav">
                 <li><router-link class="link" :to="{name: 'Home'}">Home</router-link></li>
                 <li><router-link class="link" :to="{name: 'About'}">About</router-link></li>
-                <li><router-link class="link" :to="{name: ''}">Portofolio</router-link></li>
-                <li><router-link class="link" :to="{name: ''}">Contact</router-link></li>
+                <li><router-link class="link" :to="{name: 'Contact'}">Contact</router-link></li>
             </ul>
         </transition>
         </nav>
@@ -74,7 +74,7 @@ export default{
 <style lang="scss" scoped>
 header {
     background-color: rgba(0, 0, 0, 0.8);
-    z-index: 99;
+    z-index: 3;
     width: 100%;
     position:fixed;
     transition: 0.5s ease all;
@@ -122,17 +122,14 @@ header {
             display: flex;
             align-items: center;
 
-            .logo{
-                text-transform: uppercase;
-                font-size: 1.5rem;
-                font-weight: bold;
-                text-shadow: 2px 2px #000;
+            .logo{ 
 
-            }
-
-            img{
-                width: 40px;
-                transition: .5s ease all;
+                h2{      
+                    text-transform: uppercase;
+                    font-size: 1.5rem;
+                    font-weight: bold;
+                    text-shadow: 2px 2px #000;
+                }
             }
         }
         .navigation{
@@ -172,14 +169,16 @@ header {
             background-color: #f1f1f1;
             top: 0;
             left: 0;
-            padding: 10%;
+            padding-top: 10%;
+            z-index: 2;
             
 
             li{
                 margin-left: 0;
                 .link{
                     color: #000;
-                }
+                    font-size: 16px
+                };
             }
         }
 

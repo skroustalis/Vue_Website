@@ -8,10 +8,9 @@
             My Skills
           </h2>
           <hr />
-          <button @click="onButtonClick">About</button>
         </div>    
       </section>
-      <hr class="home-hr"/>
+      <hr/>
     <div>
       <About />
     </div>
@@ -37,8 +36,7 @@
     background-image: url("../assets/whiteback.webp");
     background-attachment: fixed;
     position: relative;
-    height: 80vh;
-  
+    height: 70vh;
     .hero-text {
       padding-top: 10%;
       display: flex;
@@ -67,31 +65,10 @@
         max-width: 85px;
         margin-top: 16px;
       }
-
-      button {
-        margin-top: 1.5rem;
-        width: 20%;
-        background-color: #333;
-        color: #fff;
-        padding: 1rem;
-        font-size: 1rem;
-        border: none;
-        border-radius: 5px;
-        transition: backround-color 0.3s ease;
-        cursor: pointer;
-
-
-        &:hover{
-            background-color: #555;
-        }
-      }
       @media (max-width: 768px) {
       height: 100%;  
       }    
     }
   }
-  .home-hr{
-      margin: 0;
-    }
 
 </style>

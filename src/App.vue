@@ -19,13 +19,13 @@ export default {
 </script>
 
 <style lang="scss">
-@import url("https://fonts.googleapis.com/css2?family=Raleway:wight@400;500&display=swap");
+ @import url("https://fonts.googleapis.com/css2?family=Raleway:wight@400;500;900&display=swap");
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "Raleway", sans-serif;
   font-weight: 400;
+  font-family: "Raleway", sans-serif;
 }
 .app {
   min-height: 100vh;
