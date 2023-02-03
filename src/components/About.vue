@@ -5,57 +5,37 @@
         <img src="@/assets/avatar.png" alt="A beautiful photo">
       </div>
       <div class="about__text">
-        <h1>Demo Text</h1>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor magna id 
-          lacus convallis, euismod auctor nibh congue. Sed eget risus euismod, 
-          bibendum velit id, laoreet augue. Praesent velit metus, convallis at 
-          velit id, malesuada congue nunc.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor magna id 
-          lacus convallis, euismod auctor nibh congue. Sed eget risus euismod, 
-          bibendum velit id, laoreet augue. Praesent velit metus, convallis at 
-          velit id, malesuada congue nunc.
-        </p>
-        <a href="#"><span></span></a>
+        <h1>{{ aboutStore.data.title }}</h1>
+        <p>{{ aboutStore.data.paragraph1 }}</p>
         <button @click="toggleText()" v-if="showButton"><span>Show More</span></button>
       </div>
     </div>
       <div v-show="moreText" class="about_more_text container">
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deleniti suscipit voluptatibus ea, dolorum perferendis omnis sunt quisquam voluptates expedita eum odio in ad autem.
-          Dolore reiciendis magnam dignissimos, quos soluta quod temporibus? Molestiae provident sit corporis, asperiores iste veritatis commodi consequuntur velit laudantium quibusdam nemo ipsam quidem in maxime similique quam quis est eos possimus fuga enim.
-          Est explicabo, praesentium totam, illum optio dignissimos nisi asperiores voluptatum atque eos tenetur eaque rem at beatae unde. Atque optio cum suscipit nostrum possimus distinctio?
-          Repudiandae blanditiis maxime molestiae nisi saepe sint, sapiente omnis suscipit beatae libero. Vero sunt sapiente ex, facere asperiores non explicabo rerum dolor in, commodi cumque qui!
-          Nulla fugiat, consequuntur nisi magni expedita nobis doloremque animi impedit optio itaque ratione pariatur ducimus eligendi enim, mollitia distinctio ipsa! Necessitatibus consequatur rem nihil quisquam dicta reiciendis soluta quod dolorum nesciunt nam sapiente accusantium impedit et dolores libero deserunt velit voluptas est, iusto eveniet maiores asperiores id voluptatem nisi.
-          Ipsam quos numquam, praesentium culpa nesciunt atque ullam inventore voluptas sint sapiente nihil repellat sunt nisi animi cum autem consequuntur, esse magnam quasi adipisci sed ipsum molestias ab!
-          Sunt est pariatur deleniti nobis minima distinctio itaque eligendi, dolorem aperiam temporibus exercitationem optio quibusdam.
-        </p>
+        <p> {{ aboutStore.data.paragraph2 }}</p>
       </div>
   </section>   
 </template>
   
  <script>
+ import aboutStore from "../store/aboutStore";
   export default {
     name:'about',
     data(){
       return{
         moreText: true,
-        showButton: null
+        showButton: null,
+        aboutStore
       }
     },
     mounted() {
-    this.$el.classList.add('loaded');
+      aboutStore.mounted.call(this);
     },
     created() {
-        if (this.$route.path !== '/About') {
-            this.showButton = true;
-            this.moreText = false
-        }
+      aboutStore.created.call(this);
     },
     methods:{
       toggleText(){
-        this.$router.push({path:"/About"})
-        this.showButton = false
-        this.moreText = true
+        aboutStore.methods.toggleText.call(this);
       }
     }
   };
