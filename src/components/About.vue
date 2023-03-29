@@ -17,7 +17,7 @@
 </template>
   
  <script>
- import aboutStore from "../store/aboutStore";
+ import aboutStore from "../store/AboutStore";
   export default {
     name:'about',
     data(){

@@ -8,18 +8,18 @@
                 <!-- <img src="@/assets/logo.png" alt="" /> -->
             </div>
             <ul v-show="!mobile" class="navigation">
-                <li><router-link class="link" :to="{name: 'Home'}">Home</router-link></li>
-                <li><router-link class="link" :to="{name: 'About'}">About</router-link></li>
-                <li><router-link class="link" :to="{name: 'Contact'}">Contact</router-link></li>
+                <li v-for="link in navigationLinks" :key="link.name">
+                <router-link class="link" :to="{path: link.path}">{{ link.name }}</router-link>
+                </li>
             </ul>
         <div class="icon">
             <i @click="toggleMobileNav" v-show="mobile" class="fa-sharp fa-solid fa-bars" :class="{'icon-active': mobileNav}"></i>
         </div>
         <transition name="mobile-nav">
             <ul v-show="mobileNav" class="dropdown-nav">
-                <li><router-link class="link" :to="{name: 'Home'}">Home</router-link></li>
-                <li><router-link class="link" :to="{name: 'About'}">About</router-link></li>
-                <li><router-link class="link" :to="{name: 'Contact'}">Contact</router-link></li>
+                <li v-for="link in navigationStore" :key="link.name">
+                <router-link class="link" :to="{path: link.path}">{{ link.name }}</router-link>
+                </li>
             </ul>
         </transition>
         </nav>
@@ -27,6 +27,7 @@
 </template>
 
 <script>
+import navigationStore from "../store/NavigationStore"
 export default{
     name:"navbar",
     data() {
@@ -34,7 +35,13 @@ export default{
         scrolledNav: null,
         mobile: null,
         mobileNav: null,
-        windowWidth:null,
+        windowWidth:null,      
+        mixins: [navigationStore],
+        computed: {
+            navigationLinks() {
+            return this.navigationLinks
+            },
+        },
         };
     },
     created(){
